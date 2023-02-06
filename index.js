@@ -5,7 +5,8 @@
 //     perimeter : (a) => (4*a)
 // }
 
-//Everything in Node.js runs inside this function. It is same like global object of JavaScript.
+//Everything in Node.js runs inside this function. It is same like global object of JavaScript. This is called Module Wrapper function. That's why every file in Node is called a module and each of their scope is private.
+
 // (function (exports, require, module, __filename, __direname){
     
 // })
@@ -18,8 +19,8 @@ const square = require('./square'); //When using file-based module, we need to g
 //const {area, perimeter, add} = require('./square'); //Common method
 
 const calSqaure = (a) => {
-    console.log(`The value of a is ${a} and it's area is ` +square.area(a));
-    console.log(`The value of a is ${a} and it's peri is ` +square.perimeter(a));
+    console.log(`The value of a is ${a} and it's area is ` + square.area(a));
+    console.log(`The value of a is ${a} and it's peri is ` + square.perimeter(a));
 }
 calSqaure(5); //The value of a is 5 and it's area is 25 The value of a is 5 and it's peri is 20
 
