@@ -9,5 +9,12 @@ const area = (a) => (a*a);
 const perimeter = (a) => (4*a);
 // module.exports.area = area; 
 // module.exports.perimeter = perimeter; 
-module.exports = {area, perimeter}
+
+const add = (a,b) => {
+    return a + b;
+}
+
+module.exports = {area, perimeter, add}
+
+
 
