@@ -15,11 +15,12 @@ fs.readFile('bio.txt', 'utf-8',(err,res) => {
     console.log("Error: ",err);
 });
 
-// const renameFile = fs.rename('bio.txt','challengeFile.txt', (err,res) => {
-//     console.log("Error: ",err);
-// });
+fs.rename('bio.txt','challengeFile.txt', (err,res) => {
+    console.log("Error: ",err);
+});
 
-// fs.unlinkSync('challengeFile.txt', (err,res) => {
+// fs.unlink("challengeFile.txt", (err,res) => {
+//     console.log("File deleted");
 //     console.log("Error: ",err);
 // }); //It will delete the file.
 
