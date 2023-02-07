@@ -1,4 +1,4 @@
-//Core Modules: Built-in Modules (part of core Node). Eg; path, fs, os, http, util, etc. 
+//Core Modules: Built-in Modules (part of core Node). Eg; path, fs, os, http, util, DNS, crypto etc. 
 
 //---------------------------------------------------------------------------------------------------//
 //Path Module

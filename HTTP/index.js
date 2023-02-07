@@ -27,7 +27,7 @@ const server = http.createServer((request,response) => {
     }else if(request.url == "/api"){
             //console.log("API: ", data);
             response.writeHead(200, {"Content-Type": "application/json"})
-            response.end(objData[0].name);
+            response.end(objData[2].name);
         //response.end('<html> <body> <h1> Hello from API! </h1> </body> </html>');
     }else{
         //response.writeHead(404, {"Content-Type":"text/html"}); //To set status same as response.statusCode below. And to change the document type. The changed document will be shown by: browser-network-file-Header-Response Header-Content-Type.

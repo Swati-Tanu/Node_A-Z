@@ -1,10 +1,14 @@
 //Node.js Streams
 
-//Streams are objects that let you read data from a source or write data to a destination in continous fashion. In Node.js there are 4 types of streams: 1.Readable 2.Writable 3.Duplex(R+W) 4.Transform(Type of duplex).
+//Streams (flow) are objects that let you read data from a source or write data to a destination in continous fashion. In Node.js there are 4 types of streams: 1.Readable 2.Writable 3.Duplex(R+W) 4.Transform(Type of duplex).
 
 //Now, each type of stream is an EventEmitter instance and throws several events at different instance of times: data,end,error,finish.
 
 //In simpl words, streaming is listening to music or watching video in 'real time' instead of downloading a file to your computer.
+
+//A stream is a sequence of bytes used to hold file data.
+
+//This will give us the same response but the load on server is very very less, this will make much more sence in really big files.
 
 //Let's read a file in streaming file.
 const fs = require('fs');
@@ -37,7 +41,7 @@ const server = http.createServer();
 
 server.on('request', (request, response) => {
 const readStream = fs.createReadStream("stream.txt");
-readStream.pipe(response)
+readStream.pipe(response);
 })
 
 server.listen('8500', 'localhost');
