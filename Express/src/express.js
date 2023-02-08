@@ -3,10 +3,14 @@ const path = require('path');
 
 const app = express();
 const staticPath = path.join(__dirname, "../public");
+const templatePath = path.join(__dirname, "../templates");
 
 //To add dynamic website we use template engines: hbs, pug etc.
-//There should a folder named views in order to use template files. Also, the files in will be with extension name of the template engines.
+//There should a folder named views in order to use template files. Also, the files in will be with extension name of the template engines. 
 app.set("view engine", "hbs");
+
+//Now there is a way to change it's name from views.
+app.set('views', templatePath);
 
 //Built-In Middleware
 // app.use(express.static(staticPath)); //To add static website.
