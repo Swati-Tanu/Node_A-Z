@@ -3,3 +3,5 @@ Route Visited: / | Method: GET
 Route Visited: /about | Method: GET
 Route Visited: /contacts | Method: GET
 Route Visited: /about | Method: GET
+Route Visited: /about | Method: GET
+Route Visited: /about?name=Tanu | Method: GET

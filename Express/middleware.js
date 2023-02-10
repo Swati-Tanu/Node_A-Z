@@ -48,3 +48,8 @@ app.listen(4500,(req,res)=>{
 })
 
 //Community middleware: CORS(Cross Origin Resource Sharing), Multer
+//app.use(cros); //Allows to share resources.
+
+//Query String: The Query String module used to provide utilities for parsing and formatting URL query strings.
+
+//req.query

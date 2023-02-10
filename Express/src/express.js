@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
-const hbs = require('hbs')
+const hbs = require('hbs');
+const { log } = require('console');
 
 const app = express();
 const staticPath = path.join(__dirname, "../public");
@@ -32,6 +33,7 @@ app.get("/", (request,response)=>{
 });
 
 app.get("/about", (request,response)=>{
+    console.log(request.query); //Query String
     response.send("<h1>Hello from About us!</h1>");
 });
 
