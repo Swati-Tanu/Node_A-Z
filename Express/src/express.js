@@ -52,6 +52,12 @@ app.get("/json", (request,response)=>{ //response.json will also be same as resp
         name : "Aman"
     });
 });
+//"*" is an operator like an universal. It will ignore every file that is present and focus on what is not present.
+app.get("*", (req,res) => {
+    res.render("404", {
+        errorcomment: "Opps page not found",
+    });
+}) 
 
 app.listen(4500, () => {
     console.log(`Server Running at http://${hostname}:${port}`);
