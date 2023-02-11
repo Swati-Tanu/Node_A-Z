@@ -1,4 +1,6 @@
-//Databases are of two types: 1.SQL: Structured Query Language. 2.No SQL: Not a Structured Query Language.
+//Databse is a place to store data.
+
+//Databases are of two types: 1.SQL: Structured Query Language.Not flexible. 2.No SQL: Not a Structured Query Language. Flexible.
 
 //In MongoDB: Table is called Collection, Row is Document and Column is Fields.
 
@@ -13,6 +15,9 @@
 
 //mongo - enter
 //Ctrl+D - exit
+//db - current database
+
+//CRUD: CRUD (Create, Read, Update, Delete) is an acronym for ways one can operate on stored data. It is a mnemonic for the four basic functions of persistent storage. It is the way of interacting with the data.
 
 //CREATE
 //use random - to use listed database
@@ -41,4 +46,31 @@
 //db.collection1.find({active:true}).limit(1).skip(1) :Now get 2nd field skipping the first one with value {active:true}
 
 //UPDATE
+//db.collectionname.updateOne(<filter>,<update>) : Updates only one
+//db.collectionname.updateMany(<filter>,<update>) : Update many
+//db.collection1.updateOne({name:"Tanu"},{$set: {profession:"SDE"}})
+//Eg: db.collection1.updateMany({profession:"SDE"},{$set:{location:"UK"}})
+//The $set operator replaces the value of a field with the specified value.
+//db.collection1.updateMany({type:"Front End"},{$set: {active:false}})
 
+//DELETE
+//db.collectionname.deleteOne(deletion_criteria)
+//db.collectionname.deleteMany(deletion_criteria)
+//remove() also deletes but it has been deprecated.
+//db.collectionname.deleteMany({}): To delete the whole document.
+
+//Conversions
+//1. <= : $lte
+//2. >= : $gte
+//3. < : $lt
+//4. > : $gt
+//5. == : $eq
+//6. != : $ne
+//7. $and : AND
+//8. $or : OR
+//Eg: db.collectionname.find({$and: [{health : {$get:40}},{health : {$lte:60}}]})
+//db.collectionname.find().sort({health: -1}): To display in decreasing order.
+//db.collectionname.find().sort({name: -1}): To display in decreasing order of their ASCII value.
+//db.collectionname.find().sort({health: 1}): Min to max, i.e., ascending order
+
+//Refer MongoDB cheat sheet on official site.
