@@ -20,4 +20,7 @@
 //use databasename - creates new database
 //db.createcollection(collectionname) - to create a collection inside the database
 //db.products.insertOne({key1:"item1",key2:"item2",key3:"item3"}) - to create a document inside collection.
-
+//db.products.insertMany([{key1:"item1",key2:"item2",key3:"item3"},{key1:"item1",key2:"item2",key3:"item3"},{key1:"item1",key2:"item2",key3:"item3"}])
+//Step 1: use databasename --> Step 2: db.dropDatabase(): To delete the complete database
+//db.collectionname.updateOne({id: "cshg54gff"},{})/updateMany({},{}) :This step finds the particular object.
+//{$set: {},{},{}} : Then to set. 
