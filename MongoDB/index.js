@@ -77,4 +77,4 @@
 
 //MongoDB Atlas provides a cloud storage where we can deploys/store our database.
 
-//MVC
+//MVC: Model View Controller
