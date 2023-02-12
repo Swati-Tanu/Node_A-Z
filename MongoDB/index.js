@@ -74,3 +74,7 @@
 //db.collectionname.find().sort({health: 1}): Min to max, i.e., ascending order
 
 //Refer MongoDB cheat sheet on official site.
+
+//MongoDB Atlas provides a cloud storage where we can deploys/store our database.
+
+//MVC

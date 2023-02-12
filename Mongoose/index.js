@@ -1,5 +1,6 @@
 const express = require('express')
 const {connection, UserModel} = require("./db")
+require('dotenv').config()
 
 const app = express()
 app.use(express.json())
@@ -56,7 +57,7 @@ app.patch("/delete/:id", async(req,res) => {
     }
 })
 
-app.listen(4200, async() => {
+app.listen(process.env.port, async() => {
     try{
     await connection
     console.log("Connected to DB");
@@ -65,4 +66,5 @@ app.listen(4200, async() => {
         console.log("Cannot connected to DB");
         console.log(err);
     }
+    console.log(`Server running at port ${process.env.port}`);
 })
