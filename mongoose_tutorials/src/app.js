@@ -10,7 +10,7 @@ console.log("connection successful...");
     console.log(err);
 });
 
-//Schema defines the structure of the document, default values, validators, etc.
+//Schema in mongoose defines the structure of the document, default values, validators, etc.
 const playlistSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -26,7 +26,7 @@ const playlistSchema = new mongoose.Schema({
     }
 })
 
-//Model is a wrapper on the Schema, it provides an interface to the database for creating, querying, updating, deleting records, etc.
+//Model in mongoose is a wrapper on the Schema, it provides an interface to the database for creating, querying, updating, deleting records, etc.
 
 //Since Playlist is a class starts with capital letter.
 const Playlist = new mongoose.model("Playlist", playlistSchema); //collection creation
