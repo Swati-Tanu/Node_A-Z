@@ -32,24 +32,50 @@ const playlistSchema = new mongoose.Schema({
 const Playlist = new mongoose.model("Playlist", playlistSchema); //collection creation
 
 //create/insert a document
-
+//CREATE
 const createDocument = async () => {
     try {
         const nodejsPlaylist = new Playlist({
             name: "Nodejs",
-            course : "FE",
+            course : "BE",
             videos: 60,
             author: "Tanu",
             active: true,
         })
+
+        const reactjsPlaylist = new Playlist({
+            name: "Reactjs",
+            course : "FE",
+            videos: 40,
+            author: "Tanu",
+            active: true,
+        })
         
-        const result = await nodejsPlaylist.save();
+        const jsPlaylist = new Playlist({
+            name: "js",
+            course : "FE",
+            videos: 55,
+            author: "Tanu",
+            active: true,
+        })
+
+        const result = await Playlist.inserMany([nodejsPlaylist,reactjsPlaylist,jsPlaylist]);
         console.log(result);
     }
     catch (err){
         console.log(err);
     }
-}
-    
+}    
 
 createDocument();
+
+//READ
+const getDocument = async () => {
+    const result = await Playlist.find();
+    console.log(result);
+}
+
+getDocument();
+
+
+
