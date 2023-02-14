@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose')
 
-mongoose.connect("mongodb://localhost:27017/mtutorial")
+mongoose.connect("mongodb://localhost:27017/mtutorial") 
 .then(() => {
 console.log("connection successful...");
 })
@@ -30,3 +30,26 @@ const playlistSchema = new mongoose.Schema({
 
 //Since Playlist is a class starts with capital letter.
 const Playlist = new mongoose.model("Playlist", playlistSchema); //collection creation
+
+//create/insert a document
+
+const createDocument = async () => {
+    try {
+        const nodejsPlaylist = new Playlist({
+            name: "Nodejs",
+            course : "FE",
+            videos: 60,
+            author: "Tanu",
+            active: true,
+        })
+        
+        const result = await nodejsPlaylist.save();
+        console.log(result);
+    }
+    catch (err){
+        console.log(err);
+    }
+}
+    
+
+createDocument();
