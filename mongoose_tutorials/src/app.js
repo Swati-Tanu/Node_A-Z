@@ -2,7 +2,8 @@
 
 const mongoose = require('mongoose')
 
-mongoose.connect("mongodb://localhost:27017/mtutorial") 
+mongoose.connect("mongodb://localhost:27017/mtutorial", mongoose.set('strictQuery', false)
+)
 .then(() => {
 console.log("connection successful...");
 })
@@ -59,7 +60,7 @@ const createDocument = async () => {
             active: true,
         })
 
-        const result = await Playlist.inserMany([nodejsPlaylist,reactjsPlaylist,jsPlaylist]);
+        const result = await Playlist.insertMany([nodejsPlaylist,reactjsPlaylist,jsPlaylist]);
         console.log(result);
     }
     catch (err){
@@ -71,8 +72,16 @@ createDocument();
 
 //READ
 const getDocument = async () => {
-    const result = await Playlist.find();
+    try{
+    const result = await Playlist
+    .find({videos: {$gt : 50}})
+    .select({name:1})
+    .limit(1);
     console.log(result);
+    }
+    catch(err){
+        console.log(err);
+    }
 }
 
 getDocument();
