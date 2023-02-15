@@ -1,9 +1,9 @@
 //Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It manages relationships between data, provides schema validation and is used to translate between objects in code and the representation of those objects in MongoDB.
 
 const mongoose = require('mongoose')
+mongoose.set('strictQuery', false)
 
-mongoose.connect("mongodb://localhost:27017/mtutorial", mongoose.set('strictQuery', false)
-)
+mongoose.connect("mongodb://localhost:27017/mtutorial")
 .then(() => {
 console.log("connection successful...");
 })
@@ -73,15 +73,11 @@ createDocument();
 //READ
 const getDocument = async () => {
     try{
-    const result = await Playlist
-    .find({videos: {$gt : 50}})
-    .select({name:1})
-    .limit(1);
-    console.log(result);
-    }
-    catch(err){
+        const result = await Playlist.insertMany([nodejsPlaylist,reactjsPlaylist,jsPlaylist]);
+        console.log(result);
+        } catch (err){
         console.log(err);
-    }
+        }
 }
 
 getDocument();
