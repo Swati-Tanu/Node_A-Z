@@ -1,6 +1,7 @@
 const express = require('express')
 const {connection} = require("./configs/db")
 const {UserModel} = require("./model/User.model")
+const jwt = require('jsonwebtoken')
 
 const app = express();
 
@@ -23,10 +24,11 @@ app.post("/register", async(req,res)=>{
 
 app.post("/login", async(req,res)=>{
     const {email,pass}=req.body
+    const token = jwt.sign({course:'backend'}, 'meta');
     try{
         const user = await UserModel.find({email,pass})
         if(user.length>0){
-            res.send("Login Successful")
+            res.send({"msg":"Login Successful","tokan":token})
         }else{
             res.send({"msg":"Wrong Credentials"})
         }
@@ -34,6 +36,32 @@ app.post("/login", async(req,res)=>{
     catch (err){
         console.log({"msg" :"Something went wrong", "error": err.message});
     }
+})
+
+app.get("/data", (req,res)=>{
+    const token = req.headers.authorization
+    jwt.verify(token, 'meta', function(err,decoded){
+        if(decoded){
+            res.send("DATA is here...")
+        }else{
+            res.send({"msg":"Something went wrong", "error":err.message})
+        }
+    })
+})
+
+app.get("/cart", (req,res)=>{
+    const token = req.headers.authorization
+    jwt.verify(token, 'meta', function(err,decoded){
+        if(decoded){
+            res.send("Cart Product data...")
+        }else{
+            res.send({"msg":"Something went wrong", "error":err.message})
+        }
+    })
+})
+
+app.get("/about", (req,res)=>{
+    res.send("About...")
 })
 
 app.listen(8000, async ()=>{
